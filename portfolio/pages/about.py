@@ -51,7 +51,6 @@ def parallelogram_card(
     Tworzy pojedynczą kartę projektu w kształcie równoległoboku z pochylonymi liniami bocznymi.
     """
 
-    # Kąt pochylenia dla tekstu (odwrotny)
     text_skew_angle = (
         skew_angle.replace("-", "") if "-" in skew_angle else f"-{skew_angle}"
     )
@@ -83,7 +82,6 @@ def parallelogram_card(
             height="170px",
             background_color="#ffffff",
             border_radius="15px",
-            # Efekt neumorphismu
             border="1px solid rgba(0, 0, 0, 0.05)",
             display="flex",
             align_items="center",
@@ -173,9 +171,8 @@ def about_page() -> rx.Component:
                         rx.list_item("Project Organization: GitHub Projects"),
                         text_align="left",
                         width="100%",
-                        padding_left="20px",  # Wcięcie dla listy
+                        padding_left="20px",
                     ),
-                    # Oddzielenie od paragrafu poniżej
                     rx.spacer(height="1em"),  # Dodaj trochę pionowej przestrzeni
                     # Paragraf opisowy projektu
                     rx.text(
