@@ -1,0 +1,1 @@
+export default {"basename": "/portfolio/", "future": {"unstable_optimizeDeps": true}, "ssr": false, "prerender": true, "build": "build"};
