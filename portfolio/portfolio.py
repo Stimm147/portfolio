@@ -2,6 +2,10 @@ import reflex as rx
 from .pages.homepage import homepage
 from rxconfig import config
 
+config.head_tags = ['<base href="/portfolio/">']
+
+app = rx.App(config=config)
+
 
 def index() -> rx.Component:
     return rx.container(
@@ -9,9 +13,4 @@ def index() -> rx.Component:
     )
 
 
-app = rx.App()
-
-app.add_page(
-    index,
-    route="/",
-)
+app.add_page(index, route="/")
