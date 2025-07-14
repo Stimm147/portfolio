@@ -17,4 +17,4 @@ COPY . .
 ENV REFLEX_BACKEND_PORT 8000
 
 # Uruchom serwer backendu Reflex
-CMD ["reflex", "run", "--env", "prod", "--backend-port", "${REFLEX_BACKEND_PORT}"]
+CMD reflex run --env prod --backend-port ${REFLEX_BACKEND_PORT}
