@@ -1,5 +1,5 @@
 [start]
-cmd = "reflex run --env prod --backend-port ${PORT}"
+cmd = "reflex run --env prod --frontend-path .web --port ${PORT}"
 
 [nix]
 packages = ["unzip"]
