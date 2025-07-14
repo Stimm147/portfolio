@@ -1,8 +1,8 @@
 [start]
 cmd = "reflex run --env prod --backend-port $PORT"
 
+[apt]
+packages = ["unzip"]
 
-[build]
-install = [
-  "apt-get update && apt-get install -y unzip"
-]
+[phases.setup]
+nixPkgs = ["bun"]
