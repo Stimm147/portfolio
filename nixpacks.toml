@@ -1,5 +1,5 @@
-[start]
-cmd = "reflex run --env prod"
+[phases.build]
+cmds = ["reflex init && reflex export"]
 
-[nix]
-packages = ["unzip", "nodejs", "curl"]
+[start]
+cmd = "caddy run --config Caddyfile --adapter caddyfile"
