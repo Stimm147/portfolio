@@ -1,2 +1,5 @@
 [start]
 cmd = "reflex run --env prod"
+
+[apt]
+packages = ["unzip"]
