@@ -1,5 +1,6 @@
 [start]
-cmd = "reflex run --env prod"
+cmd = "reflex run --env prod --port ${PORT}"
+
 
 [apt]
 packages = ["unzip"]
