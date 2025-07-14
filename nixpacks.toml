@@ -1,0 +1,2 @@
+[start]
+cmd = "reflex run --env prod"
