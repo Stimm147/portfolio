@@ -7,6 +7,10 @@ ENV PYTHONUNBUFFERED 1
 # Ustaw katalog roboczy w kontenerze
 WORKDIR /app
 
+RUN apt-get update && apt-get install -y curl
+RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
+RUN apt-get install -y nodejs
+
 # Kopiuj pliki zależności i zainstaluj je
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
