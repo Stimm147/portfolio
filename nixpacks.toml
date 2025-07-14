@@ -2,4 +2,4 @@
 cmd = "reflex run --env prod"
 
 [nix]
-packages = ["unzip"]
+packages = ["unzip", "nodejs"]
