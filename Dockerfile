@@ -20,6 +20,7 @@ COPY . .
 
 # Port aplikacji
 ENV REFLEX_BACKEND_PORT 8000
+ENV REFLEX_FRONTEND_PORT 3000
 
 # Domyślna komenda
-CMD reflex run --env prod --backend-port ${REFLEX_BACKEND_PORT}
+CMD reflex run --env prod --backend-port ${REFLEX_BACKEND_PORT} --frontend-port ${REFLEX_FRONTEND_PORT}
