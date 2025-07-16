@@ -1,24 +1,25 @@
-# Użyj oficjalnego obrazu Pythona jako bazy
 FROM python:3.12-slim-bookworm
 
-# Ustaw zmienną środowiskową, aby Python nie buforował wyjścia
 ENV PYTHONUNBUFFERED 1
 
-# Ustaw katalog roboczy w kontenerze
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y curl
+# Zainstaluj potrzebne pakiety systemowe
+RUN apt-get update && apt-get install -y curl unzip
+
+# Node.js
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
 RUN apt-get install -y nodejs
 
-# Kopiuj pliki zależności i zainstaluj je
+# Instalacja zależności Pythona
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Skopiuj resztę kodu aplikacji
+# Skopiowanie kodu źródłowego
 COPY . .
 
+# Port aplikacji
 ENV REFLEX_BACKEND_PORT 8000
 
-# Uruchom serwer backendu Reflex
+# Domyślna komenda
 CMD reflex run --env prod --backend-port ${REFLEX_BACKEND_PORT}
