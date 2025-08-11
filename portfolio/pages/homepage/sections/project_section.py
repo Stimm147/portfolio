@@ -1,0 +1,218 @@
+import reflex as rx
+from portfolio.pages.homepage.sections.helper_functions import tag_item
+
+
+def project_section():
+    return rx.box(
+        rx.heading(
+            "Projekty",
+            size="8",
+            weight="bold",
+            color="white",
+            margin_bottom="60px",
+            text_align="center",
+        ),
+        # Sekcja "Początki"
+        rx.box(
+            rx.heading(
+                "Początki - Projekty DIY",
+                size="6",
+                weight="bold",
+                color="white",
+                margin_bottom="30px",
+                text_align="center",
+            ),
+            rx.box(
+                rx.box(
+                    rx.image(
+                        src="/image.png",
+                        width="300px",
+                        height="200px",
+                        border_radius="15px",
+                        object_fit="cover",
+                        border="2px solid rgba(255, 255, 255, 0.2)",
+                    ),
+                    width="320px",
+                    display="flex",
+                    justify_content="center",
+                ),
+                rx.box(
+                    rx.text(
+                        "Moje pierwsze kroki w świecie technologii rozpoczęły się od projektów DIY. "
+                        "Budowanie prostych układów elektronicznych w tym własnego głośnika aktywnego. Te doświadczenia nauczyły mnie "
+                        "podstaw elektroniki i programowania mikrokontrolerów, co później przełożyło się "
+                        "na pasję do tworzenia oprogramowania.",
+                        color="rgba(255, 255, 255, 0.9)",
+                        size="4",
+                        line_height="1.6",
+                    ),
+                    flex="1",
+                    display="flex",
+                    align_items="center",
+                ),
+                display="flex",
+                gap="40px",
+                align_items="center",
+                padding="30px",
+                bg="rgba(255, 255, 255, 0.05)",
+                border_radius="20px",
+                backdrop_filter="blur(10px)",
+                border="1px solid rgba(255, 255, 255, 0.1)",
+                flex_wrap="wrap",
+            ),
+            max_width="1000px",
+            margin="0 auto 80px auto",
+        ),
+        # Sekcja "Projekty Programistyczne"
+        rx.box(
+            rx.heading(
+                "Projekty Programistyczne",
+                size="6",
+                weight="bold",
+                color="white",
+                margin_bottom="40px",
+                text_align="center",
+            ),
+            # Projekt Neptun's Eye
+            rx.box(
+                rx.box(
+                    rx.image(
+                        src="/segmentation.png",  # Placeholder dla Neptun's Eye
+                        width="350px",
+                        height="250px",
+                        border_radius="15px",
+                        object_fit="cover",
+                        border="2px solid rgba(255, 255, 255, 0.2)",
+                    ),
+                    width="370px",
+                    display="flex",
+                    justify_content="center",
+                ),
+                rx.box(
+                    rx.heading(
+                        "Neptun's Eye",
+                        size="5",
+                        color="white",
+                        weight="bold",
+                        margin_bottom="15px",
+                    ),
+                    rx.box(
+                        tag_item("Python", "rgba(52, 152, 219, 0.8)"),
+                        tag_item("OpenCV", "rgba(46, 204, 113, 0.8)"),
+                        tag_item("Flask", "rgba(231, 76, 60, 0.8)"),
+                        tag_item("ML", "rgba(155, 89, 182, 0.8)"),
+                        display="flex",
+                        gap="8px",
+                        flex_wrap="wrap",
+                        margin_bottom="20px",
+                    ),
+                    rx.text(
+                        "Zaawansowany system analizy obrazów podwodnych wykorzystujący sztuczną inteligencję. "
+                        "Aplikacja potrafi identyfikować różne gatunki ryb, analizować jakość wody "
+                        "oraz monitorować ekosystemy morskie. Projekt łączy computer vision, "
+                        "machine learning i web development w jedną kompleksową platformę.",
+                        color="rgba(255, 255, 255, 0.9)",
+                        size="4",
+                        line_height="1.6",
+                    ),
+                    flex="1",
+                    display="flex",
+                    flex_direction="column",
+                    justify_content="center",
+                ),
+                display="flex",
+                gap="40px",
+                align_items="center",
+                padding="30px",
+                bg="rgba(255, 255, 255, 0.05)",
+                border_radius="20px",
+                backdrop_filter="blur(10px)",
+                border="1px solid rgba(255, 255, 255, 0.1)",
+                margin_bottom="30px",
+                flex_wrap="wrap",
+            ),
+            # Drugi projekt - placeholder
+            rx.box(
+                rx.box(
+                    rx.image(
+                        src="/api/placeholder/350/250",  # Placeholder dla drugiego projektu
+                        width="350px",
+                        height="250px",
+                        border_radius="15px",
+                        object_fit="cover",
+                        border="2px solid rgba(255, 255, 255, 0.2)",
+                    ),
+                    width="370px",
+                    display="flex",
+                    justify_content="center",
+                ),
+                rx.box(
+                    rx.heading(
+                        "Portfolio website",
+                        size="5",
+                        color="white",
+                        weight="bold",
+                        margin_bottom="15px",
+                    ),
+                    rx.box(
+                        tag_item("Python", "rgba(52, 152, 219, 0.8)"),
+                        display="flex",
+                        gap="8px",
+                        flex_wrap="wrap",
+                        margin_bottom="20px",
+                    ),
+                    rx.text(
+                        "Nowoczesne portfolio osobiste zaprojektowane w frameworku Reflex, prezentujące "
+                        "moje doświadczenie i umiejętności programistyczne. Strona zawiera interaktywne "
+                        "sekcje z informacjami o wykształceniu, projektach oraz technologiach. "
+                        "Responsywny design z animacjami i eleganckim interfejsem użytkownika.",
+                        color="rgba(255, 255, 255, 0.9)",
+                        size="4",
+                        line_height="1.6",
+                    ),
+                    flex="1",
+                    display="flex",
+                    flex_direction="column",
+                    justify_content="center",
+                ),
+                display="flex",
+                gap="40px",
+                align_items="center",
+                padding="30px",
+                bg="rgba(255, 255, 255, 0.05)",
+                border_radius="20px",
+                backdrop_filter="blur(10px)",
+                border="1px solid rgba(255, 255, 255, 0.1)",
+                flex_wrap="wrap",
+            ),
+            max_width="1200px",
+            margin="0 auto",
+        ),
+        rx.box(
+            rx.button(
+                "Zobacz więcej projektów na GitHub",
+                bg="rgba(255, 255, 255, 0.1)",
+                color="white",
+                padding="15px 30px",
+                border_radius="25px",
+                border="2px solid rgba(255, 255, 255, 0.3)",
+                font_size="16px",
+                font_weight="600",
+                cursor="pointer",
+                backdrop_filter="blur(10px)",
+                transition="all 0.3s ease",
+                _hover={
+                    "bg": "rgba(255, 255, 255, 0.2)",
+                    "border_color": "rgba(255, 255, 255, 0.5)",
+                    "transform": "translateY(-2px)",
+                },
+            ),
+            text_align="center",
+            margin_top="60px",
+        ),
+        padding="80px 20px",
+        background="linear-gradient(135deg, rgba(20, 20, 40, 0.95) 0%, rgba(0, 0, 0, 0.9) 50%, rgba(40, 20, 60, 0.95) 100%)",
+        backdrop_filter="blur(20px)",
+        width="100vw",
+        margin_left="calc(-50vw + 50%)",
+    )

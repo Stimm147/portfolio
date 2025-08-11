@@ -1,6 +1,6 @@
 import os
 import reflex as rx
-from .pages.homepage import homepage
+from .pages.homepage.homepage import homepage
 from rxconfig import config
 
 app = rx.App()
