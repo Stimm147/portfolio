@@ -1,37 +1,39 @@
 FROM python:3.12-slim-bookworm as builder
 
-ENV PYTHONUNBUFFERED 1
-
+# Ustawienie katalogu roboczego
 WORKDIR /app
 
-# Zainstaluj potrzebne pakiety systemowe
-RUN apt-get update && apt-get install -y curl unzip
-
-# Node.js
-RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
-RUN apt-get install -y nodejs
+# Instalacja zależności systemowych (tylko w tym etapie)
+RUN apt-get update && apt-get install -y unzip
 
 # Instalacja zależności Pythona
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Skopiowanie kodu źródłowego
+# Skopiowanie całego kodu aplikacji (potrzebnego do budowania)
 COPY . .
 
-# Port aplikacji
-ENV REFLEX_BACKEND_PORT 8000
-ENV REFLEX_FRONTEND_PORT 8000
-
-# Wyeksportuj statyczny frontend. To generuje pliki w katalogu .web/
-# i tworzy frontend.zip
+# Uruchomienie komendy, która kompiluje kod Python do plików Next.js (HTML/CSS/JS)
+# i tworzy plik frontend.zip
 RUN reflex export --frontend-only
 
-# Rozpakuj zbudowany frontend do katalogu, który będzie łatwo skopiować
+# Rozpakowanie zbudowanego frontendu do katalogu .web
 RUN unzip frontend.zip -d .web/
 
+FROM node:18-alpine
+
+# Ustawiamy katalog roboczy dla serwera Node.js
+WORKDIR /app
+
+# Skopiuj TYLKO zbudowany frontend z poprzedniego etapu "builder"
+# To sprawia, że finalny obraz jest mały i nie zawiera Pythona ani narzędzi budowania
+COPY --from=builder /app/.web .
+
+# Zainstaluj zależności produkcyjne dla Next.js
 RUN npm install
 
+# Wystaw port, na którym będzie działał serwer Node.js (domyślnie 3000)
 EXPOSE 3000
 
-# Domyślna komenda
+# Uruchom serwer produkcyjny Next.js
 CMD ["npm", "run", "prod"]
