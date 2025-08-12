@@ -10,5 +10,8 @@ config = rx.Config(
         rx.plugins.TailwindV4Plugin(),
     ],
     api_url=api_url,
-    cors_allowed_origins=["*"],
+    cors_allowed_origins=[
+        "http://localhost:3000",
+        "https://portfolio-production-3beb.up.railway.app",
+    ],
 )
