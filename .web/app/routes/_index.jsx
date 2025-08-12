@@ -1,10 +1,228 @@
 
 
-import { Fragment, useEffect } from "react"
-import { Box as RadixThemesBox, Button as RadixThemesButton, Container as RadixThemesContainer, Flex as RadixThemesFlex, Heading as RadixThemesHeading, Text as RadixThemesText } from "@radix-ui/themes"
+import { Fragment, useCallback, useContext, useEffect } from "react"
+import { Box as RadixThemesBox, Button as RadixThemesButton, Container as RadixThemesContainer, Flex as RadixThemesFlex, Heading as RadixThemesHeading, Text as RadixThemesText, TextField as RadixThemesTextField } from "@radix-ui/themes"
+import { EventLoopContext, StateContexts } from "$/utils/context"
+import { Event, isNotNullOrUndefined, isTrue } from "$/utils/state"
+import DebounceInput from "react-debounce-input"
 import { jsx } from "@emotion/react"
 
 
+
+function Button_72285911042953376168222308330551513034 () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+
+
+  const on_click_76c41be6fe65c8d7583df103716da064 = useCallback(((_e) => (addEvents([(Event("reflex___state____state.portfolio___pages___homepage___homepage____backend_test_state.simulate_server_issue", ({  }), ({  })))], [_e], ({  })))), [addEvents, Event])
+
+
+
+  
+  return (
+    jsx(
+RadixThemesButton,
+{color:"orange",onClick:on_click_76c41be6fe65c8d7583df103716da064,size:"2"},
+"Zmie\u0144 Status"
+,)
+  )
+}
+
+function Text_316261815598385043798285650637702082820 () {
+  
+  const reflex___state____state__portfolio___pages___homepage___homepage____backend_test_state = useContext(StateContexts.reflex___state____state__portfolio___pages___homepage___homepage____backend_test_state)
+
+
+
+
+
+  
+  return (
+    jsx(
+RadixThemesText,
+{as:"p"},
+reflex___state____state__portfolio___pages___homepage___homepage____backend_test_state.current_time_rx_state_
+,)
+  )
+}
+
+function Debounceinput_314188894602727832661977284094908475634 () {
+  
+  const reflex___state____state__portfolio___pages___homepage___homepage____backend_test_state = useContext(StateContexts.reflex___state____state__portfolio___pages___homepage___homepage____backend_test_state)
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+
+
+  const on_change_98a3652a4b60afbca859ea492274bc1c = useCallback(((_e) => (addEvents([(Event("reflex___state____state.portfolio___pages___homepage___homepage____backend_test_state.set_user_message", ({ ["value"] : _e["target"]["value"] }), ({  })))], [_e], ({  })))), [addEvents, Event])
+
+
+
+  
+  return (
+    jsx(DebounceInput,{css:({ ["width"] : "70%" }),debounceTimeout:300,element:RadixThemesTextField.Root,onChange:on_change_98a3652a4b60afbca859ea492274bc1c,placeholder:"Napisz wiadomo\u015b\u0107...",value:(isNotNullOrUndefined(reflex___state____state__portfolio___pages___homepage___homepage____backend_test_state.user_message_rx_state_) ? reflex___state____state__portfolio___pages___homepage___homepage____backend_test_state.user_message_rx_state_ : "")},)
+
+  )
+}
+
+function Button_262178827698754307602139971239697704161 () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+
+
+  const on_click_06f579b21d34869ab39d3ee4f8e2284c = useCallback(((_e) => (addEvents([(Event("reflex___state____state.portfolio___pages___homepage___homepage____backend_test_state.add_message", ({  }), ({  })))], [_e], ({  })))), [addEvents, Event])
+
+
+
+  
+  return (
+    jsx(
+RadixThemesButton,
+{color:"blue",onClick:on_click_06f579b21d34869ab39d3ee4f8e2284c},
+"Dodaj"
+,)
+  )
+}
+
+function Button_224140649192654744260385125837185951439 () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+
+
+  const on_click_476f4f8573655031e6de6d207de5edb0 = useCallback(((_e) => (addEvents([(Event("reflex___state____state.portfolio___pages___homepage___homepage____backend_test_state.increment_visits", ({  }), ({  })))], [_e], ({  })))), [addEvents, Event])
+
+
+
+  
+  return (
+    jsx(
+RadixThemesButton,
+{color:"blue",onClick:on_click_476f4f8573655031e6de6d207de5edb0,size:"2"},
+"Odwied\u017a stron\u0119"
+,)
+  )
+}
+
+function Fragment_314095527355853220946788743880225918372 () {
+  
+  const reflex___state____state__portfolio___pages___homepage___homepage____backend_test_state = useContext(StateContexts.reflex___state____state__portfolio___pages___homepage___homepage____backend_test_state)
+
+
+
+
+
+  
+  return (
+    jsx(
+Fragment,
+{},
+(isTrue(reflex___state____state__portfolio___pages___homepage___homepage____backend_test_state.messages_rx_state_) ? (jsx(
+Fragment,
+{},
+jsx(Flex_158003653989899030943750996644273218603,{},)
+,)) : (jsx(
+Fragment,
+{},
+jsx(
+RadixThemesText,
+{as:"p",css:({ ["color"] : "gray.500", ["fontStyle"] : "italic" })},
+"Brak wiadomo\u015bci"
+,),))),)
+  )
+}
+
+function Button_270870018209308412194882228725146680284 () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+
+
+  const on_click_58fd3e565ac85a7dea4881de60a9873a = useCallback(((_e) => (addEvents([(Event("reflex___state____state.portfolio___pages___homepage___homepage____backend_test_state.update_time", ({  }), ({  })))], [_e], ({  })))), [addEvents, Event])
+
+
+
+  
+  return (
+    jsx(
+RadixThemesButton,
+{color:"green",onClick:on_click_58fd3e565ac85a7dea4881de60a9873a,size:"2"},
+"Od\u015bwie\u017c czas"
+,)
+  )
+}
+
+function Text_225406770349594670185173226810892995836 () {
+  
+  const reflex___state____state__portfolio___pages___homepage___homepage____backend_test_state = useContext(StateContexts.reflex___state____state__portfolio___pages___homepage___homepage____backend_test_state)
+
+
+
+
+
+  
+  return (
+    jsx(
+RadixThemesText,
+{as:"p"},
+reflex___state____state__portfolio___pages___homepage___homepage____backend_test_state.visit_count_rx_state_
+,)
+  )
+}
+
+function Flex_158003653989899030943750996644273218603 () {
+  
+  const reflex___state____state__portfolio___pages___homepage___homepage____backend_test_state = useContext(StateContexts.reflex___state____state__portfolio___pages___homepage___homepage____backend_test_state)
+
+
+
+
+
+  
+  return (
+    jsx(
+RadixThemesFlex,
+{align:"start",className:"rx-Stack",css:({ ["width"] : "100%" }),direction:"column",gap:"1"},
+reflex___state____state__portfolio___pages___homepage___homepage____backend_test_state.messages_rx_state_.map((message_rx_state_,index_6f225bedff72f606)=>(jsx(
+RadixThemesText,
+{as:"p",css:({ ["padding"] : "0.5rem", ["background"] : "gray.100", ["borderRadius"] : "4px", ["marginBottom"] : "0.25rem" }),key:index_6f225bedff72f606},
+message_rx_state_
+,))),)
+  )
+}
+
+function Button_66577689357383406640291001084704284793 () {
+  
+  const [addEvents, connectErrors] = useContext(EventLoopContext);
+
+
+  const on_click_d5dc8b6fc674b2a3015717597d1ce027 = useCallback(((_e) => (addEvents([(Event("reflex___state____state.portfolio___pages___homepage___homepage____backend_test_state.clear_messages", ({  }), ({  })))], [_e], ({  })))), [addEvents, Event])
+
+
+
+  
+  return (
+    jsx(
+RadixThemesButton,
+{color:"red",onClick:on_click_d5dc8b6fc674b2a3015717597d1ce027},
+"Wyczy\u015b\u0107"
+,)
+  )
+}
+
+function Text_286519800379974998264145884415509732817 () {
+  
+  const reflex___state____state__portfolio___pages___homepage___homepage____backend_test_state = useContext(StateContexts.reflex___state____state__portfolio___pages___homepage___homepage____backend_test_state)
+
+
+
+
+
+  
+  return (
+    jsx(
+RadixThemesText,
+{as:"p"},
+reflex___state____state__portfolio___pages___homepage___homepage____backend_test_state.server_status_rx_state_
+,)
+  )
+}
 
 export default function Component() {
     
@@ -297,7 +515,95 @@ jsx(
 RadixThemesButton,
 {css:({ ["background"] : "rgba(255, 255, 255, 0.1)", ["color"] : "white", ["padding"] : "15px 30px", ["borderRadius"] : "25px", ["border"] : "2px solid rgba(255, 255, 255, 0.3)", ["fontSize"] : "16px", ["fontWeight"] : "600", ["cursor"] : "pointer", ["backdropFilter"] : "blur(10px)", ["transition"] : "all 0.3s ease", ["&:hover"] : ({ ["background"] : "rgba(255, 255, 255, 0.2)", ["borderColor"] : "rgba(255, 255, 255, 0.5)", ["transform"] : "translateY(-2px)" }) })},
 "Zobacz wi\u0119cej projekt\u00f3w na GitHub"
-,),),),),),),jsx(
+,),),),jsx(
+RadixThemesBox,
+{css:({ ["padding"] : "2rem", ["border"] : "2px dashed #4A90E2", ["borderRadius"] : "12px", ["background"] : "white", ["margin"] : "2rem 0" })},
+jsx(
+RadixThemesHeading,
+{css:({ ["marginBottom"] : "1rem" }),size:"4"},
+"\ud83e\uddea Panel Testowy Backendu"
+,),jsx(
+RadixThemesFlex,
+{align:"start",className:"rx-Stack",css:({ ["width"] : "100%" }),direction:"row",gap:"4"},
+jsx(
+RadixThemesBox,
+{css:({ ["padding"] : "1rem", ["border"] : "1px solid #e0e0e0", ["borderRadius"] : "8px" })},
+jsx(
+RadixThemesText,
+{as:"p",weight:"bold"},
+"Status serwera:"
+,),jsx(Text_286519800379974998264145884415509732817,{},)
+,jsx(Button_72285911042953376168222308330551513034,{},)
+,),jsx(
+RadixThemesBox,
+{css:({ ["padding"] : "1rem", ["border"] : "1px solid #e0e0e0", ["borderRadius"] : "8px" })},
+jsx(
+RadixThemesText,
+{as:"p",weight:"bold"},
+"Licznik odwiedzin:"
+,),jsx(Text_225406770349594670185173226810892995836,{},)
+,jsx(Button_224140649192654744260385125837185951439,{},)
+,),jsx(
+RadixThemesBox,
+{css:({ ["padding"] : "1rem", ["border"] : "1px solid #e0e0e0", ["borderRadius"] : "8px" })},
+jsx(
+RadixThemesText,
+{as:"p",weight:"bold"},
+"Aktualny czas:"
+,),jsx(Text_316261815598385043798285650637702082820,{},)
+,jsx(Button_270870018209308412194882228725146680284,{},)
+,),),jsx(
+RadixThemesBox,
+{css:({ ["marginTop"] : "2rem" })},
+jsx(
+RadixThemesHeading,
+{css:({ ["marginBottom"] : "0.5rem" }),size:"3"},
+"\ud83d\udcac System Wiadomo\u015bci"
+,),jsx(
+RadixThemesFlex,
+{align:"start",className:"rx-Stack",css:({ ["width"] : "100%" }),direction:"row",gap:"2"},
+jsx(Debounceinput_314188894602727832661977284094908475634,{},)
+,jsx(Button_262178827698754307602139971239697704161,{},)
+,jsx(Button_66577689357383406640291001084704284793,{},)
+,),jsx(
+RadixThemesBox,
+{css:({ ["maxHeight"] : "200px", ["overflowY"] : "auto", ["padding"] : "1rem", ["border"] : "1px solid #e0e0e0", ["borderRadius"] : "8px", ["marginTop"] : "1rem" })},
+jsx(Fragment_314095527355853220946788743880225918372,{},)
+,),),jsx(
+RadixThemesBox,
+{css:({ ["padding"] : "1rem", ["border"] : "1px solid #e0e0e0", ["borderRadius"] : "8px", ["marginTop"] : "2rem", ["background"] : "gray.50" })},
+jsx(
+RadixThemesHeading,
+{css:({ ["marginBottom"] : "0.5rem" }),size:"3"},
+"\ud83d\udd27 Informacje API"
+,),jsx(
+RadixThemesFlex,
+{align:"start",className:"rx-Stack",direction:"column",gap:"1"},
+jsx(
+RadixThemesText,
+{as:"p",weight:"bold"},
+"Endpoints dost\u0119pne w tym te\u015bcie:"
+,),jsx(
+RadixThemesText,
+{as:"p"},
+"\u2022 GET /visit_count - pobierz liczb\u0119 odwiedzin"
+,),jsx(
+RadixThemesText,
+{as:"p"},
+"\u2022 POST /message - dodaj now\u0105 wiadomo\u015b\u0107"
+,),jsx(
+RadixThemesText,
+{as:"p"},
+"\u2022 GET /messages - pobierz wszystkie wiadomo\u015bci"
+,),jsx(
+RadixThemesText,
+{as:"p"},
+"\u2022 GET /server_status - sprawd\u017a status serwera"
+,),jsx(
+RadixThemesText,
+{as:"p"},
+"\u2022 GET /current_time - pobierz aktualny czas serwera"
+,),),),),),),),jsx(
 "title",
 {},
 "Portfolio | Index"
