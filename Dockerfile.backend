@@ -23,4 +23,4 @@ COPY . .
 ENV PORT 8000
 
 # Uruchom tylko backend aplikacji w trybie produkcyjnym
-CMD reflex run --env prod --backend-only --backend-port ${PORT} --backend-host 0.0.0.0
+CMD reflex run --env prod --backend-only --backend-port ${PORT}
