@@ -1,39 +1,28 @@
-FROM python:3.12-slim-bookworm as builder
+# Użyj oficjalnego obrazu Python, ponieważ Reflex go wymaga do budowy frontendu
+FROM python:3.12-slim-bookworm
 
-# Ustawienie katalogu roboczego
+# Ustaw zmienną środowiskową
+ENV PYTHONUNBUFFERED 1
+
+# Ustaw katalog roboczy
 WORKDIR /app
 
-# Instalacja zależności systemowych (tylko w tym etapie)
-RUN apt-get update && apt-get install -y unzip
+# Zainstaluj Node.js i inne zależności systemowe
+RUN apt-get update && \
+    apt-get install -y curl unzip nodejs npm
 
-# Instalacja zależności Pythona
+# Skopiuj plik z zależnościami Pythona
 COPY requirements.txt .
+
+# Zainstaluj zależności Pythona
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Skopiowanie całego kodu aplikacji (potrzebnego do budowania)
+# Skopiuj cały kod źródłowy aplikacji
 COPY . .
 
-# Uruchomienie komendy, która kompiluje kod Python do plików Next.js (HTML/CSS/JS)
-# i tworzy plik frontend.zip
-RUN reflex export --frontend-only
+# Ustaw port dla frontendu
+ENV PORT 3000
 
-# Rozpakowanie zbudowanego frontendu do katalogu .web
-RUN unzip frontend.zip -d .web/
-
-FROM node:18-alpine
-
-# Ustawiamy katalog roboczy dla serwera Node.js
-WORKDIR /app
-
-# Skopiuj TYLKO zbudowany frontend z poprzedniego etapu "builder"
-# To sprawia, że finalny obraz jest mały i nie zawiera Pythona ani narzędzi budowania
-COPY --from=builder /app/.web .
-
-# Zainstaluj zależności produkcyjne dla Next.js
-RUN npm install
-
-# Wystaw port, na którym będzie działał serwer Node.js (domyślnie 3000)
-EXPOSE 3000
-
-# Uruchom serwer produkcyjny Next.js
-CMD ["npm", "run", "prod"]
+# Uruchom tylko frontend aplikacji w trybie produkcyjnym
+# API_URL zostanie ustawione w zmiennych środowiskowych w panelu Railway
+CMD reflex run --env prod --frontend-only --frontend-port ${PORT} --api-url ${API_URL}

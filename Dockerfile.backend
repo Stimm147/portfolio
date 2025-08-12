@@ -1,28 +1,26 @@
+# Użyj oficjalnego obrazu Python
 FROM python:3.12-slim-bookworm
 
+# Ustaw zmienną środowiskową, aby Python nie buforował stdout i stderr
 ENV PYTHONUNBUFFERED 1
 
+# Ustaw katalog roboczy w kontenerze
 WORKDIR /app
 
-# Zainstaluj potrzebne pakiety systemowe
-RUN apt-get update && apt-get install -y curl unzip && rm -rf /var/lib/apt/lists/*
+# Zainstaluj zależności systemowe
+RUN apt-get update && apt-get install -y curl unzip
 
-# Node.js (potrzebny do inicjalizacji Reflex)
-RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
-RUN apt-get update && apt-get install -y nodejs && rm -rf /var/lib/apt/lists/*
-
-# Instalacja zależności Pythona
+# Skopiuj plik z zależnościami Pythona
 COPY requirements.txt .
+
+# Zainstaluj zależności Pythona
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Skopiowanie kodu źródłowego
+# Skopiuj cały kod źródłowy aplikacji
 COPY . .
 
-# Inicjalizacja Reflex
-RUN reflex init
+# Ustaw port dla backendu
+ENV PORT 8000
 
-# Railway automatycznie ustawia $PORT
-EXPOSE $PORT
-
-# Uruchom TYLKO backend
-CMD reflex run --env prod --backend-only --backend-host 0.0.0.0 --backend-port $PORT
+# Uruchom tylko backend aplikacji w trybie produkcyjnym
+CMD reflex run --env prod --backend-only --backend-port ${PORT}
