@@ -7,5 +7,5 @@ config = rx.Config(
         rx.plugins.SitemapPlugin(),
         rx.plugins.TailwindV4Plugin(),
     ],
-    api_url=os.environ.get("API_URL"),
+    api_url=os.environ.get("API_URL") or "http://localhost:8000",
 )
