@@ -1,0 +1,26 @@
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Zainstaluj Python (potrzebny do budowania Reflex)
+RUN apk add --no-cache python3 py3-pip
+
+# Skopiuj requirements i zainstaluj Reflex
+COPY requirements.txt .
+RUN pip install --break-system-packages reflex
+
+# Skopiuj kod źródłowy
+COPY . .
+
+# Inicjalizacja i budowanie frontendu
+RUN reflex init
+RUN reflex export --frontend-only
+
+# Zainstaluj serve do serwowania statycznych plików
+RUN npm install -g serve
+
+# Railway automatycznie ustawia $PORT
+EXPOSE $PORT
+
+# Serwuj statyczne pliki
+CMD serve -s .web/_static -l $PORT
