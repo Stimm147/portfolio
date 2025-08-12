@@ -1,26 +1,37 @@
-FROM node:18-alpine
+FROM python:3.12-slim-bookworm as builder
+
+ENV PYTHONUNBUFFERED 1
 
 WORKDIR /app
 
-# Zainstaluj Python (potrzebny do budowania Reflex)
-RUN apk add --no-cache python3 py3-pip
+# Zainstaluj potrzebne pakiety systemowe
+RUN apt-get update && apt-get install -y curl unzip
 
-# Skopiuj requirements i zainstaluj Reflex
+# Node.js
+RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
+RUN apt-get install -y nodejs
+
+# Instalacja zależności Pythona
 COPY requirements.txt .
-RUN pip install --break-system-packages reflex
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Skopiuj kod źródłowy
+# Skopiowanie kodu źródłowego
 COPY . .
 
-# Inicjalizacja i budowanie frontendu
-RUN reflex init
+# Port aplikacji
+ENV REFLEX_BACKEND_PORT 8000
+ENV REFLEX_FRONTEND_PORT 8000
+
+# Wyeksportuj statyczny frontend. To generuje pliki w katalogu .web/
+# i tworzy frontend.zip
 RUN reflex export --frontend-only
 
-# Zainstaluj serve do serwowania statycznych plików
-RUN npm install -g serve
+# Rozpakuj zbudowany frontend do katalogu, który będzie łatwo skopiować
+RUN unzip frontend.zip -d .web/
 
-# Railway automatycznie ustawia $PORT
-EXPOSE $PORT
+RUN npm install
 
-# Serwuj statyczne pliki
-CMD serve -s .web/_static -l $PORT
+EXPOSE 3000
+
+# Domyślna komenda
+CMD ["npm", "run", "prod"]
