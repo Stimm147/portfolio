@@ -1,3 +1,4 @@
+
 FROM python:3.12-slim-bookworm
 
 ENV PYTHONUNBUFFERED 1
@@ -7,7 +8,7 @@ WORKDIR /app
 # Zainstaluj potrzebne pakiety systemowe
 RUN apt-get update && apt-get install -y curl unzip
 
-# Node.js
+# Node.js (potrzebny do budowania)
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
 RUN apt-get install -y nodejs
 
@@ -18,9 +19,15 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Skopiowanie kodu źródłowego
 COPY . .
 
-# Port aplikacji
-ENV REFLEX_BACKEND_PORT 8000
-ENV REFLEX_FRONTEND_PORT 8000
+# Zbuduj aplikację
+RUN reflex init
+RUN reflex export --frontend-only
 
-# Domyślna komenda
-CMD reflex run --env prod --backend-port ${REFLEX_BACKEND_PORT} --frontend-port ${REFLEX_FRONTEND_PORT}
+# Railway automatycznie ustawia $PORT
+ENV PORT ${PORT:-8000}
+
+# Expose port
+EXPOSE $PORT
+
+# Uruchom tylko backend API w trybie produkcyjnym
+CMD reflex run --env prod --backend-only --backend-port $PORT
