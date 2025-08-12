@@ -25,4 +25,4 @@ ENV PORT 3000
 
 # Uruchom tylko frontend aplikacji w trybie produkcyjnym
 # Błędna flaga --api-url została usunięta
-CMD reflex run --env prod --frontend-only --frontend-port ${PORT} --host 0.0.0.0
+CMD reflex run --env prod --frontend-only --frontend-port ${PORT} -frontend-host 0.0.0.0
