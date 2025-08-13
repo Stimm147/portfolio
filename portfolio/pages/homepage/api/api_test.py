@@ -52,7 +52,7 @@ def stats_component() -> rx.Component:
             StatsState.is_loading,
             # --- POPRAWIONA LINIA ---
             # Zamiast rx.circular_progress używamy rx.spinner
-            rx.center(rx.spinner(size="lg"), margin_top="1em"),
+            rx.center(rx.spinner(size="3"), margin_top="1em"),
             # -----------------------
             rx.cond(
                 StatsState.stats,
