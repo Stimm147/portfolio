@@ -50,7 +50,10 @@ def stats_component() -> rx.Component:
         ),
         rx.cond(
             StatsState.is_loading,
-            rx.center(rx.circular_progress(is_indeterminate=True), margin_top="1em"),
+            # --- POPRAWIONA LINIA ---
+            # Zamiast rx.circular_progress używamy rx.spinner
+            rx.center(rx.spinner(size="lg"), margin_top="1em"),
+            # -----------------------
             rx.cond(
                 StatsState.stats,
                 rx.vstack(
@@ -77,7 +80,6 @@ def stats_component() -> rx.Component:
                 margin_top="1em",
             ),
         ),
-        # Wywołaj akcję pobierania statystyk automatycznie przy załadowaniu komponentu
         on_mount=StatsState.fetch_stats,
         padding="2em",
         border="1px solid #eaeaea",
