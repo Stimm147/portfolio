@@ -12,6 +12,6 @@ config = rx.Config(
     api_url=api_url,
     cors_allowed_origins=[
         "http://localhost:3000",
-        "https://portfolio-production-3beb.up.railway.app",
+        "https://michal-sztymelski-portfolio.up.railway.app",
     ],
 )
