@@ -1,5 +1,7 @@
 import reflex as rx
 
+from portfolio.pages.homepage.utilities.languages import LanguageState
+
 
 def image_section():
     return rx.box(  # Image section
@@ -21,7 +23,7 @@ def image_section():
             },
         ),
         rx.text(
-            "The Portfolio of Michał Sztymelski",
+            LanguageState.header_title,
             size="6",  # mobile, tablet, desktop
             padding_top=["15px", "20px", "23px"],
             padding_x=["15px", "30px", "0px"],  # dodatkowy padding na bokach dla mobile

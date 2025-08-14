@@ -1,11 +1,12 @@
 import reflex as rx
 from portfolio.pages.homepage.sections.helper_functions import tag_item
+from portfolio.pages.homepage.utilities.languages import LanguageState
 
 
 def project_section():
     return rx.box(
         rx.heading(
-            "Projekty",
+            LanguageState.projects_heading,
             size="8",
             weight="bold",
             color="white",
@@ -15,7 +16,7 @@ def project_section():
         # Sekcja "Początki"
         rx.box(
             rx.heading(
-                "Początki - Projekty DIY",
+                LanguageState.projects_diy_title,
                 size="6",
                 weight="bold",
                 color="white",
@@ -38,10 +39,7 @@ def project_section():
                 ),
                 rx.box(
                     rx.text(
-                        "Moje pierwsze kroki w świecie technologii rozpoczęły się od projektów DIY. "
-                        "Budowanie prostych układów elektronicznych w tym własnego głośnika aktywnego. Te doświadczenia nauczyły mnie "
-                        "podstaw elektroniki i programowania mikrokontrolerów, co później przełożyło się "
-                        "na pasję do tworzenia oprogramowania.",
+                        LanguageState.projects_diy_desc,
                         color="rgba(255, 255, 255, 0.9)",
                         size="4",
                         line_height="1.6",
@@ -66,7 +64,7 @@ def project_section():
         # Sekcja "Projekty Programistyczne"
         rx.box(
             rx.heading(
-                "Projekty Programistyczne",
+                LanguageState.projects_dev_title,
                 size="6",
                 weight="bold",
                 color="white",
@@ -98,19 +96,17 @@ def project_section():
                     ),
                     rx.box(
                         tag_item("Python", "rgba(52, 152, 219, 0.8)"),
-                        tag_item("OpenCV", "rgba(46, 204, 113, 0.8)"),
+                        tag_item("TKinter", "rgba(46, 204, 113, 0.8)"),
                         tag_item("Flask", "rgba(231, 76, 60, 0.8)"),
                         tag_item("ML", "rgba(155, 89, 182, 0.8)"),
+                        tag_item("Experiment tracking", "rgba(100, 89, 102, 0.8)"),
                         display="flex",
                         gap="8px",
                         flex_wrap="wrap",
                         margin_bottom="20px",
                     ),
                     rx.text(
-                        "Zaawansowany system analizy obrazów podwodnych wykorzystujący sztuczną inteligencję. "
-                        "Aplikacja potrafi identyfikować różne gatunki ryb, analizować jakość wody "
-                        "oraz monitorować ekosystemy morskie. Projekt łączy computer vision, "
-                        "machine learning i web development w jedną kompleksową platformę.",
+                        LanguageState.project_neptun_desc,
                         color="rgba(255, 255, 255, 0.9)",
                         size="4",
                         line_height="1.6",
@@ -131,11 +127,11 @@ def project_section():
                 margin_bottom="30px",
                 flex_wrap="wrap",
             ),
-            # Drugi projekt - placeholder
+            # Drugi projekt
             rx.box(
                 rx.box(
                     rx.image(
-                        src="/api/placeholder/350/250",  # Placeholder dla drugiego projektu
+                        src="/portfolio.png",  # Placeholder dla drugiego projektu
                         width="350px",
                         height="250px",
                         border_radius="15px",
@@ -156,16 +152,16 @@ def project_section():
                     ),
                     rx.box(
                         tag_item("Python", "rgba(52, 152, 219, 0.8)"),
+                        tag_item("Flask", "rgba(46, 204, 113, 0.8)"),
+                        tag_item("Reflex", "rgba(241, 196, 15, 0.8)"),
+                        tag_item("Mircoservices", "rgba(231, 76, 60, 0.8)"),
                         display="flex",
                         gap="8px",
                         flex_wrap="wrap",
                         margin_bottom="20px",
                     ),
                     rx.text(
-                        "Nowoczesne portfolio osobiste zaprojektowane w frameworku Reflex, prezentujące "
-                        "moje doświadczenie i umiejętności programistyczne. Strona zawiera interaktywne "
-                        "sekcje z informacjami o wykształceniu, projektach oraz technologiach. "
-                        "Responsywny design z animacjami i eleganckim interfejsem użytkownika.",
+                        LanguageState.project_portfolio_desc,
                         color="rgba(255, 255, 255, 0.9)",
                         size="4",
                         line_height="1.6",
@@ -190,7 +186,7 @@ def project_section():
         ),
         rx.box(
             rx.button(
-                "Zobacz więcej projektów na GitHub",
+                LanguageState.ui_github_button,
                 bg="rgba(255, 255, 255, 0.1)",
                 color="white",
                 padding="15px 30px",

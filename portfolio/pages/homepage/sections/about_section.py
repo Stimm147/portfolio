@@ -1,11 +1,12 @@
 import reflex as rx
 from portfolio.pages.homepage.sections.helper_functions import tag_item
+from portfolio.pages.homepage.utilities.languages import LanguageState
 
 
 def about_me_section():
     return rx.box(
         rx.heading(
-            "O mnie",
+            LanguageState.about_me_heading,
             size="8",
             weight="bold",
             color="white",
@@ -14,12 +15,7 @@ def about_me_section():
         ),
         # Główny opis
         rx.text(
-            "Jestem pasjonatem technologii z pasją do programowania i tworzenia "
-            "innowacyjnych rozwiązań. Specjalizuję się w sztucznej inteligencji "
-            "oraz rozwoju aplikacji w Pythonie i C#. Fascynuje mnie eksplorowanie "
-            "nowych technologii AI, tworzenie gier i stron internetowych. "
-            "Każdy projekt traktuję jako okazję do "
-            "nauki i doskonalenia swoich umiejętności programistycznych.",
+            LanguageState.about_me_description,
             size="4",
             color="rgba(255, 255, 255, 0.9)",
             line_height="1.6",
@@ -30,7 +26,7 @@ def about_me_section():
         # Wykształcenie
         rx.box(
             rx.heading(
-                "Wykształcenie",
+                LanguageState.education_heading,
                 size="6",
                 weight="bold",
                 color="white",
@@ -55,7 +51,7 @@ def about_me_section():
                 ),
                 rx.box(
                     rx.heading(
-                        "Technikum Informatyczne",
+                        LanguageState.education_tech_school_title,
                         size="4",
                         color="white",
                         weight="bold",
@@ -67,8 +63,7 @@ def about_me_section():
                         margin_bottom="10px",
                     ),
                     rx.text(
-                        "Podstawy programowania, bazy danych, sieci komputerowe. "
-                        "Pierwszy kontakt z językami programowania i technologiami webowymi.",
+                        LanguageState.education_tech_school_desc,
                         color="rgba(255, 255, 255, 0.8)",
                         size="3",
                         line_height="1.5",
@@ -113,7 +108,7 @@ def about_me_section():
                 ),
                 rx.box(
                     rx.heading(
-                        "Uniwersytet Warmińsko-Mazurski",
+                        LanguageState.education_university_title,
                         size="4",
                         color="white",
                         weight="bold",
@@ -125,8 +120,7 @@ def about_me_section():
                         margin_bottom="10px",
                     ),
                     rx.text(
-                        "Informatyka, specjalizacja w inżynierii oprogramowania. "
-                        "Pogłębianie wiedzy z zakresu algorytmów, struktury danych i nowoczesnych technologii.",
+                        LanguageState.education_university_desc,
                         color="rgba(255, 255, 255, 0.8)",
                         size="3",
                         line_height="1.5",
@@ -135,8 +129,8 @@ def about_me_section():
                     rx.box(
                         tag_item("Python", "rgba(52, 152, 219, 0.8)"),
                         tag_item("Java", "rgba(231, 76, 60, 0.8)"),
-                        tag_item("Algorytmy", "rgba(155, 89, 182, 0.8)"),
-                        tag_item("Struktury danych", "rgba(46, 204, 113, 0.8)"),
+                        tag_item("Algorithms", "rgba(155, 89, 182, 0.8)"),
+                        tag_item("Data structures", "rgba(46, 204, 113, 0.8)"),
                         tag_item("OOP", "rgba(241, 196, 15, 0.8)"),
                         tag_item("Inżynieria oprogramowania", "rgba(52, 73, 94, 0.8)"),
                         display="flex",
@@ -160,7 +154,7 @@ def about_me_section():
         # Działalność w kole naukowym
         rx.box(
             rx.heading(
-                "Działalność w Kole Naukowym",
+                LanguageState.science_club_heading,
                 size="6",
                 weight="bold",
                 color="white",
@@ -189,22 +183,19 @@ def about_me_section():
                 ),
                 rx.box(
                     rx.heading(
-                        'Koło Naukowe Sztucznej Inteligencji ,,Czarna Magia"',
+                        LanguageState.science_club_title,
                         size="4",
                         color="white",
                         weight="bold",
                     ),
                     rx.text(
-                        "Członek | 2023-obecnie",
+                        LanguageState.science_club_role,
                         color="rgba(255, 255, 255, 0.7)",
                         size="3",
                         margin_bottom="15px",
                     ),
                     rx.text(
-                        "Uczestnictwo w projektach, organizacja warsztatów programistycznych, "
-                        "współpraca przy tworzeniu bota dla serwera Discord. "
-                        "Rozwój umiejętności pracy w zespole i zarządzania projektami. "
-                        "Redakcja strony Koła na Facebooku.",
+                        LanguageState.science_club_desc,
                         color="rgba(255, 255, 255, 0.8)",
                         size="3",
                         line_height="1.5",
