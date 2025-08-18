@@ -187,6 +187,10 @@ def project_section():
         rx.box(
             rx.button(
                 LanguageState.ui_github_button,
+                on_click=rx.redirect(
+                    "https://github.com/Stimm147",  # <-- WSTAW TUTAJ SWÓJ LINK
+                    is_external=True,
+                ),
                 bg="rgba(255, 255, 255, 0.1)",
                 color="white",
                 padding="15px 30px",
