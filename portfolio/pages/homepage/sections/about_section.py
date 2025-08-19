@@ -151,7 +151,6 @@ def about_me_section():
             max_width="800px",
             margin="0 auto 60px auto",
         ),
-        # Działalność w kole naukowym
         rx.box(
             rx.heading(
                 LanguageState.science_club_heading,
@@ -164,17 +163,16 @@ def about_me_section():
             rx.box(
                 rx.box(
                     rx.image(
-                        src="/IMG_1540.jpg",  # Placeholder dla zdjęcia z koła naukowego
-                        width="200px",
+                        src="/IMG_1540.jpg",
                         height="200px",
                         border_radius="15px",
                         object_fit="cover",
                         border="2px solid rgba(255, 255, 255, 0.2)",
                         style={
-                            "image_rendering": "high-quality",  # Wysoka jakość
-                            "image_rendering": "-webkit-optimize-contrast",  # Webkit optymalizacja
-                            "backface_visibility": "hidden",  # Wygładza rendering
-                            "transform": "translateZ(0)",  # Hardware acceleration
+                            "image_rendering": "high-quality",
+                            "image_rendering": "-webkit-optimize-contrast",
+                            "backface_visibility": "hidden",
+                            "transform": "translateZ(0)",
                         },
                     ),
                     width="220px",

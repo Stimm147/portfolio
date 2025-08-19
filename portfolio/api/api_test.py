@@ -1,44 +1,31 @@
 import reflex as rx
-import httpx  # Zaimportuj nową bibliotekę
+import httpx
 
-# Adres URL Twojego nowego, wdrożonego API we Flasku
-STATS_API_URL = (
-    "https://flask-api-production-0454.up.railway.app/api/stats"  # <-- ZMIEŃ NA SWÓJ
-)
+STATS_API_URL = "https://flask-api-production-0454.up.railway.app/api/stats"
 
 
 class StatsState(rx.State):
-    """Stan do obsługi pobierania i przechowywania statystyk."""
 
-    # Słownik do przechowywania danych z API
     stats: dict = {}
-    # Flaga informująca, czy dane są w trakcie ładowania
     is_loading: bool = False
-    # Zmienna do przechowywania ewentualnych błędów
     error_message: str = ""
 
     async def fetch_stats(self):
-        """Pobiera dane z zewnętrznego API."""
         self.is_loading = True
         self.error_message = ""
         try:
-            # Użyj httpx do asynchronicznego zapytania GET
             async with httpx.AsyncClient() as client:
                 response = await client.get(STATS_API_URL)
-                # Sprawdź, czy zapytanie się powiodło
                 response.raise_for_status()
-                # Zaktualizuj stan danymi z API
                 self.stats = response.json()
         except httpx.HTTPStatusError as e:
             self.error_message = f"Błąd HTTP: {e.response.status_code}"
         except Exception as e:
             self.error_message = f"Wystąpił błąd: {str(e)}"
         finally:
-            # Zawsze wyłączaj flagę ładowania po zakończeniu
             self.is_loading = False
 
 
-# Komponent, który będzie wyświetlał statystyki
 def stats_component() -> rx.Component:
     return rx.box(
         rx.heading("Statystyki z Zewnętrznego API", size="5"),
@@ -50,10 +37,7 @@ def stats_component() -> rx.Component:
         ),
         rx.cond(
             StatsState.is_loading,
-            # --- POPRAWIONA LINIA ---
-            # Zamiast rx.circular_progress używamy rx.spinner
             rx.center(rx.spinner(size="3"), margin_top="1em"),
-            # -----------------------
             rx.cond(
                 StatsState.stats,
                 rx.vstack(

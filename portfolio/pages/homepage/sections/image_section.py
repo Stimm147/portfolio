@@ -4,9 +4,9 @@ from portfolio.pages.homepage.utilities.languages import LanguageState
 
 
 def image_section():
-    return rx.box(  # Image section
+    return rx.box(
         rx.image(
-            width=["180px", "200px", "250px"],  # mobile, tablet, desktop
+            width=["180px", "200px", "250px"],
             height=["180px", "200px", "250px"],
             border_radius="50%",
             bg="white",
@@ -24,9 +24,9 @@ def image_section():
         ),
         rx.text(
             LanguageState.header_title,
-            size="6",  # mobile, tablet, desktop
+            size="6",
             padding_top=["15px", "20px", "23px"],
-            padding_x=["15px", "30px", "0px"],  # dodatkowy padding na bokach dla mobile
+            padding_x=["15px", "30px", "0px"],
             text_align="center",
             animation="slideInFromTop 1s ease-out 0.3s both",
             style={
@@ -41,7 +41,7 @@ def image_section():
         margin_top=["15px", "18px", "20px"],
         width="100vw",
         justify_items="center",
-        height=["280px", "320px", "350px"],  # mniejsza wysokość na mobile
+        height=["280px", "320px", "350px"],
         background_image="url('https://images.unsplash.com/photo-1673526759321-3b3da765ffd8?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
         background_size="cover",
         background_repeat="no-repeat",

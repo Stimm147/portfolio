@@ -1,11 +1,10 @@
 import reflex as rx
-from .translations import TRANSLATIONS  # Upewnij się, że ścieżka jest poprawna
+from .translations import TRANSLATIONS
 
 
 class LanguageState(rx.State):
     """Stan aplikacji do zarządzania językiem i tłumaczeniami."""
 
-    # Domyślny język ustawiony na polski.
     language: str = "pl"
 
     # --- Event Handlers ---

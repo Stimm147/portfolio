@@ -1,5 +1,4 @@
 import reflex as rx
-from portfolio.backend import backend_test_panel
 from portfolio.api.api_test import stats_component
 from portfolio.pages.homepage.sections.image_section import image_section
 from portfolio.pages.homepage.sections.about_section import about_me_section
@@ -15,7 +14,6 @@ def homepage() -> rx.Component:
             language_switcher(),
             about_me_section(),
             project_section(),
-            # backend_test_panel(),
             # stats_component(),
             spacing="3",
         )

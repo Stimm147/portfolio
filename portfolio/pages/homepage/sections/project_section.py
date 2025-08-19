@@ -13,7 +13,6 @@ def project_section():
             margin_bottom="60px",
             text_align="center",
         ),
-        # Sekcja "Początki"
         rx.box(
             rx.heading(
                 LanguageState.projects_diy_title,
@@ -61,7 +60,6 @@ def project_section():
             max_width="1000px",
             margin="0 auto 80px auto",
         ),
-        # Sekcja "Projekty Programistyczne"
         rx.box(
             rx.heading(
                 LanguageState.projects_dev_title,
@@ -71,11 +69,10 @@ def project_section():
                 margin_bottom="40px",
                 text_align="center",
             ),
-            # Projekt Neptun's Eye
             rx.box(
                 rx.box(
                     rx.image(
-                        src="/segmentation.png",  # Placeholder dla Neptun's Eye
+                        src="/segmentation.png",
                         width="350px",
                         height="250px",
                         border_radius="15px",
@@ -127,11 +124,10 @@ def project_section():
                 margin_bottom="30px",
                 flex_wrap="wrap",
             ),
-            # Drugi projekt
             rx.box(
                 rx.box(
                     rx.image(
-                        src="/portfolio.png",  # Placeholder dla drugiego projektu
+                        src="/portfolio.png",
                         width="350px",
                         height="250px",
                         border_radius="15px",
@@ -188,7 +184,7 @@ def project_section():
             rx.button(
                 LanguageState.ui_github_button,
                 on_click=rx.redirect(
-                    "https://github.com/Stimm147",  # <-- WSTAW TUTAJ SWÓJ LINK
+                    "https://github.com/Stimm147",
                     is_external=True,
                 ),
                 bg="rgba(255, 255, 255, 0.1)",
